@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 
 // Function for Exercise 1.
@@ -72,8 +73,58 @@ void ex3()
     std::cout << sum << std::endl;
 }
 
-// Function for Exercise 4.
+// Functions for Exercise 4.
+float ex4HelpFunction(float x, float eps, int &n)
+{
+    float sum = 0;
+    float firstPart = 1 + x;
 
+    sum += firstPart;
+    int i = 2;
+    double fact = 1;
+
+    float nextPart;
+    
+    do
+    {
+        fact *= i;
+        nextPart = pow(x, i) / fact;
+        sum += nextPart;
+        ++i;
+        ++n;
+    } while (nextPart > eps);
+    
+    return sum;
+}
+
+void ex4()
+{
+    double eps;
+
+    std::cout << "Input eps: ";
+    std::cin >> eps;
+
+    std::cout << std::setprecision(3);
+
+    std::cout << "№\t x\t f(x)\t n" << std::endl;
+
+    float a = 0.0;
+    float b = 1.0;
+    float h = 0.1;
+    float f, x;
+    int n;
+    int i = 1;
+
+    for (x = a, i = 1; x <= b; x += h, ++i)
+    {
+        n = 0;
+        f = ex4HelpFunction(x, eps, n);
+
+        std::cout << i << "\t" << x << "\t" << f << "\t" << n << std::endl;
+    }
+
+    
+}
 
 int main()
 {
@@ -84,10 +135,10 @@ int main()
     // ex2();
 
     // Exercise 3.
-    ex3();
+    // ex3();
 
     // Exercise 4.
-
+    ex4();
 
     return 0;
 }
