@@ -121,21 +121,19 @@ void ex4()
         f = ex4HelpFunction(x, eps, n);
 
         std::cout << i << "\t" << x << "\t" << f << "\t" << n << std::endl;
-    }
-
-    
+    }   
 }
 
 int main()
 {
     // Exercise 1.
-    // ex1();
+    ex1();
 
     // Exercise 2.
-    // ex2();
+    ex2();
 
     // Exercise 3.
-    // ex3();
+    ex3();
 
     // Exercise 4.
     ex4();
