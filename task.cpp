@@ -52,7 +52,25 @@ void ex2()
 }
 
 // Function for Exercise 3.
+void ex3()
+{
+    double eps;
+    std::cout << "Input eps: ";
+    std::cin >> eps;
 
+    int i = 1;
+    double part;
+    double sum = 0;
+
+    do
+    {
+        part = pow((- 1), 2 * i) / (i * (i + 1) * (i + 2));
+        sum += part;
+        ++i;
+    } while (part > eps);
+    
+    std::cout << sum << std::endl;
+}
 
 // Function for Exercise 4.
 
@@ -63,10 +81,10 @@ int main()
     // ex1();
 
     // Exercise 2.
-    ex2();
+    // ex2();
 
     // Exercise 3.
-
+    ex3();
 
     // Exercise 4.
 
