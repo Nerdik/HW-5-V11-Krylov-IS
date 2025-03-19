@@ -68,7 +68,6 @@ void ex3()
     do
     { 
         part = sign / (i * (i + 1) * (i + 2));
-        std::cout << part << std::endl;
         sum += part;
         sign *= (- 1.0);
         ++i;
