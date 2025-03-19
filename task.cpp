@@ -46,7 +46,8 @@ void ex2()
 
     for (int i = 1; i <= n; ++i)
     {
-        double part = 1 + pow(x, i) / pow(i, 2);
+        double part = 1 + x / pow(i, 2);
+        x *= x;
         p *= part;
     }
     std::cout << p;
@@ -62,13 +63,16 @@ void ex3()
     int i = 1;
     double part;
     double sum = 0;
+    float sign = (- 1.0);
 
     do
-    {
-        part = pow((- 1), 2 * i) / (i * (i + 1) * (i + 2));
+    { 
+        part = sign / (i * (i + 1) * (i + 2));
+        std::cout << part << std::endl;
         sum += part;
+        sign *= (- 1.0);
         ++i;
-    } while (part > eps);
+    } while (std::fabs(part) > eps);
     
     std::cout << sum << std::endl;
 }
@@ -88,7 +92,8 @@ float ex4HelpFunction(float x, float eps, int &n)
     do
     {
         fact *= i;
-        nextPart = pow(x, i) / fact;
+        x *= x;
+        nextPart = x / fact;
         sum += nextPart;
         ++i;
         ++n;
@@ -129,13 +134,13 @@ int main()
     // Exercise 1.
     ex1();
 
-    // Exercise 2.
+    // // Exercise 2.
     ex2();
 
-    // Exercise 3.
+    // // Exercise 3.
     ex3();
 
-    // Exercise 4.
+    // // Exercise 4.
     ex4();
 
     return 0;
